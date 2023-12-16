@@ -23,17 +23,17 @@ def custom_context():
 @pytest.fixture
 @given('I have new product data', target_fixture="new_product_data")
 def new_product_data():
-    return {"name": "New Product 1", "price": 11.20, "description": "New Product 1", "stock": 3, "status": "Available"}
+    return {"name": "Nowy produkt 1", "price": 11.20, "description": "Nowy produkt 1", "stock": 3, "status": "Dostepny"}
 
 @pytest.fixture
 @given('I have new product data with negative price', target_fixture="new_product_data_with_negative_price")
 def new_product_data_with_negative_price():
-    return {"name": "Invalid Product", "price": -1.99, "description": "A product with invalid price", "stock": 5, "status": "Available"}
+    return {"name": "Bledny produkt", "price": -1.99, "description": "Produkt z bledna cena", "stock": 5, "status": "Dostepny"}
 
 @pytest.fixture
 @given('I have a product')
 def i_have_a_product(custom_context, client):
-    product_data = {"name": "Test Product", "price": 25.00, "description": "Test product", "stock": 10,"status": "Available"}
+    product_data = {"name": "Testowy produkt", "price": 25.00, "description": "Testowy produkt", "stock": 10,"status": "Dostepny"}
     response = client.post('/product', json=product_data)
     product_id = response.get_json()['id']
     custom_context.product_id = product_id 
