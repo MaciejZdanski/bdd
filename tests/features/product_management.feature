@@ -26,5 +26,5 @@ Feature: Product Management
   Scenario: Deleting an existing product
     Given I have a product
     When I delete the product
-    Then I response status code should be 200
+    Then the response status code should be 200
     And the product should no longer exist
